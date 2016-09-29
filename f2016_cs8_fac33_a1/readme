@@ -1,0 +1,21 @@
+Made by Fanyang Cheng
+
+date:9/28/2016
+
+
+this small program is helping you to determin whether you need to throw your car into garbage or keep it with the data of mpg and
+ liter/100 KM.
+
+ First, it will ask you to type in which system you want to use. please look at the instruction inside the program. DO NOT type in any
+ other wierd things into program which might cause the program crash.
+
+ The answer will print out like this:
+
+ A=['                    ', 'USC', '               ', 'Metric']
+A1=['Distance-------:', '44862835.712 miles', '  ', '27876543.000 Km']
+A2=['Gas------------:', '885.786 gallons', '    ', '234.000 liters']
+A3=['Consumption----:', '50647.491 gpm', '    ', '0.001 1/100Km']
+Gas Consumption Rating :  Excellent
+
+
+which you need to see it as a form.
