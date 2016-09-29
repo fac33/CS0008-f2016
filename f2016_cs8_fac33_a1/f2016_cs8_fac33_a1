@@ -1,1 +1,11 @@
-ii
+C:\Users\lenovo\AppData\Local\Programs\Python\Python35-32\python.exe C:/Users/lenovo/Documents/CS0008/CS0008-f2016/CS0008-f2016/f2016_cs8_fac33_a1/f2016_cs8_fac33_a1.py
+please tell us what mesuring system you want to use, for km and liter, please type 1, else please type 01
+please type in the kms you have used.27876543
+please type in the litters you have used234
+A=['                    ', 'USC', '               ', 'Metric']
+A1=['Distance-------:', '44862835.712 miles', '  ', '27876543.000 Km']
+A2=['Gas------------:', '885.786 gallons', '    ', '234.000 liters']
+A3=['Consumption----:', '50647.491 gpm', '    ', '0.001 1/100Km']
+Gas Consumption Rating :  Excellent
+
+Process finished with exit code 0

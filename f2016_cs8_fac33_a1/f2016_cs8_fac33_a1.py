@@ -38,9 +38,9 @@ C2 = ("%.3f" % consumption2)
 
 
 A = ["                    ","USC","               ","Metric"]
-A1 = ["Distance-------:",m+"miles","  ",k+"Km"]
-A2 = ["Gas------------:",g+"gallons","    ",l+"liters"]
-A3 = ["Consumption----:",C1+"gpm","    ",C2+"1/100Km"]
+A1 = ["Distance-------:",m+" miles","  ",k+" Km"]
+A2 = ["Gas------------:",g+" gallons","    ",l+" liters"]
+A3 = ["Consumption----:",C1+" gpm","    ",C2+" 1/100Km"]
 print('A={0}'.format(A))
 print('A1={0}'.format(A1))
 print('A2={0}'.format(A2))
