@@ -1,9 +1,12 @@
-global file
+file = 0
+
+
 file = input("please give me the name of the file you want me to deal with.")
+
 def processFile(fh):
     PTN = 0
     PD = 0
-    FO = open('file','r')
+    FO = open(file,'r')
     for line in FO:
         line = line.rstrip("\n")
         temp = line.split(",")
@@ -29,11 +32,14 @@ TTD = 0
 TTN = 0
 
 while file and file != "quit" and file != "q":
-    fh = open('file','r')
+    fh = open(file,'r')
     PD,PTN = processFile(fh)
-    printKV('string',PTN)
-    printKV('string',PD)
+    printKV('total lines in this file',PTN)
+    printKV('total distance in this file',PD)
     fh.close()
     TTD +=PD
     TTN += PTN
+    file = input('next file')
 
+printKV('total distance in all files',TTD)
+printKV('total lines in all files',TTN)
