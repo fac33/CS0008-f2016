@@ -1,3 +1,4 @@
+import copy
 # create a variable to put the data file name in it.
 filename = "f2016_cs8_a3.data.txt"
 # open the data file
@@ -45,7 +46,7 @@ totaldistance = 0
 for dist in contant:
     totaldistance += float(dist[1])
 #print(totaldistance)
-print(contant)
+#print(contant)
 
 
 
@@ -54,14 +55,75 @@ print(contant)
 # all the following part is about how to find the exact best runner and worst runner.
 #transfer the list into dictionary which might be easier to deal with
 contant2 = dict(contant)
+temp = len(contant)
+
+#print(contant2)
+#test
+#print(temp)
+#print(totalline)
+# then we begin to add all the same person's distance
+a = 0
+b = 0
+finaldist = {}
+for a in contant2.keys():
+    for b in contant2.keys():
+        if a == b:
+            finaldist[a] = float(contant2[a]) + float(contant2[b])
+# and then we need to cancel the mistake made by this two for loop.
+c = 0
+d = 0
+finaldist_error = copy.deepcopy(finaldist)
+for c in contant2.keys():
+    for d in finaldist_error.keys():
+        if c == d:
+            finaldist_error[d] = float(finaldist_error[d]) - float(contant2[c])
+#then we got the mistake data
+
+#then we can use for loop to correct this mistake
+e = 0
+f = 0
+for e in finaldist:
+    for f in finaldist_error:
+        if e==f:
+            finaldist[e] = finaldist[e] - finaldist_error[f]
+#test
+#print(len(finaldist))
+#print(len(finaldist_error))
+#then we began to find the bet runner and the worst runner
+z = list(finaldist.values())
+y = list(finaldist.keys())
+max_value = y[z.index(max(z))]
+max_runner = finaldist.get(max_value)
+#test
+#print(max_runner)
+#print(max_value)
+#then the worst runner
+z = list(finaldist.values())
+y = list(finaldist.keys())
+min_value = y[z.index(min(z))]
+min_runner = finaldist.get(min_value)
+#test
+#print(min_runner)
+#print(min_value)
+#final step, find how many people run and how many have multiple records
+parti = len(finaldist)
+multi = totalline - 3 - parti
 
 
-print(contant2)
-#then we just find the data part of all the files
-#contant = float(contant.rstrip('\n').split(',')[1])
-#and then we need to deal with how much the total distance all the runners run.
-#totaldistance = sum(contant)     # no idea if the sum command is right
 
+#finally, we print datas all.
+def printKV(key,value,klen=0 ):
+    KL = max(len(key),klen)
+    print(format(key,str(KL)+'s'),':',
+   value )
 
-# then we began to deal with the spcific person with max distance and min distance
+printKV("Number of imput files read",totalfile)
+printKV("total number of lines read",totalline)
+printKV("total distance run",totaldistance)
+printKV("max distance run",max_value)
+printKV("by participant",max_runner)
+printKV("min distance run",min_value)
+printKV("by participant",min_runner)
+printKV("total number of articipant",parti)
+printKV("number of participants with multiple records",multi)
 
