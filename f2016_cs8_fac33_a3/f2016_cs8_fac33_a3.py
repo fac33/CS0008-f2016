@@ -24,8 +24,7 @@ for item in name:
     P = open(item,'r')
     contant1 = P.readlines()
     contant.extend(contant1)
-# then we can find the total line we have read
-totalline = len(contant)
+
 #then we remove '\n'
 # and split the line in to different datas
 k = 0
@@ -40,6 +39,8 @@ for rmv in contant:
     if "distance" in rmv:
         del contant[w]
     w = w+1
+# then we can find the total line we have read
+totalline = len(contant)
 
 # then it's time for us to count for the total distance people run
 totaldistance = 0
@@ -55,41 +56,27 @@ for dist in contant:
 # all the following part is about how to find the exact best runner and worst runner.
 #transfer the list into dictionary which might be easier to deal with
 contant2 = dict(contant)
+contant3 = copy.deepcopy(contant)
+contant_multi = []
 temp = len(contant)
 
-#print(contant2)
+print(contant2)
 #test
 #print(temp)
 #print(totalline)
 # then we begin to add all the same person's distance
 a = 0
 b = 0
+
 finaldist = {}
 for a in contant2.keys():
-    for b in contant2.keys():
-        if a == b:
-            finaldist[a] = float(contant2[a]) + float(contant2[b])
-# and then we need to cancel the mistake made by this two for loop.
-c = 0
-d = 0
-finaldist_error = copy.deepcopy(finaldist)
-for c in contant2.keys():
-    for d in finaldist_error.keys():
-        if c == d:
-            finaldist_error[d] = float(finaldist_error[d]) - float(contant2[c])
-#then we got the mistake data
+    m = 0
+    for b in contant3:
+        if a == b[0]:
+            m = m + float(b[1])
+            print(m)
+            finaldist[a] = m
 
-#then we can use for loop to correct this mistake
-e = 0
-f = 0
-for e in finaldist:
-    for f in finaldist_error:
-        if e==f:
-            finaldist[e] = finaldist[e] - finaldist_error[f]
-#test
-#print(len(finaldist))
-#print(len(finaldist_error))
-#then we began to find the bet runner and the worst runner
 z = list(finaldist.values())
 y = list(finaldist.keys())
 max_value = y[z.index(max(z))]
@@ -107,7 +94,7 @@ min_runner = finaldist.get(min_value)
 #print(min_value)
 #final step, find how many people run and how many have multiple records
 parti = len(finaldist)
-multi = totalline - 3 - parti
+multi = totalline - parti
 
 
 
@@ -116,7 +103,7 @@ def printKV(key,value,klen=0 ):
     KL = max(len(key),klen)
     print(format(key,str(KL)+'s'),':',
    value )
-
+print(finaldist)
 printKV("Number of imput files read",totalfile)
 printKV("total number of lines read",totalline)
 printKV("total distance run",totaldistance)
@@ -124,6 +111,6 @@ printKV("max distance run",max_value)
 printKV("by participant",max_runner)
 printKV("min distance run",min_value)
 printKV("by participant",min_runner)
-printKV("total number of articipant",parti)
+printKV("total number of participant",parti)
 printKV("number of participants with multiple records",multi)
 
