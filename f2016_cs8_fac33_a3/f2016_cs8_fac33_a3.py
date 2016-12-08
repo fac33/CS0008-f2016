@@ -57,7 +57,9 @@ for dist in contant:
 #transfer the list into dictionary which might be easier to deal with
 contant2 = dict(contant)
 contant3 = copy.deepcopy(contant)
+contant4 = copy.deepcopy(contant)
 contant_multi = []
+everyrepeater = []
 temp = len(contant)
 
 print(contant2)
@@ -71,11 +73,21 @@ b = 0
 finaldist = {}
 for a in contant2.keys():
     m = 0
+    r = 0
     for b in contant3:
         if a == b[0]:
             m = m + float(b[1])
+            r +=1
+            everyrepeater.append(r)
             print(m)
             finaldist[a] = m
+
+# in here, we need to prepare for a list to print in the final document.
+repr = 0
+for runners in contant4:
+
+        runners.append(everyrepeater[repr])
+        repr+=1
 
 z = list(finaldist.values())
 y = list(finaldist.keys())
@@ -113,4 +125,14 @@ printKV("min distance run",min_runner)
 printKV("by participant",min_value)
 printKV("total number of participant",parti)
 printKV("number of participants with multiple records",multi)
+#print(contant4)
+#print(contant)
+
+
+#finally we will create a file to print all of the joiners' distance, name and their participation times.
+f = open("f2016_cs8_fac33_a3.data.output.csv",'w')
+for each in contant4:
+    ff = str(each)+'/n'
+    f.write(ff)
+
 
