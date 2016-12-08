@@ -134,5 +134,7 @@ f = open("f2016_cs8_fac33_a3.data.output.csv",'w')
 for each in contant4:
     ff = str(each)+'/n'
     f.write(ff)
+f.close()
+K.close()
 
 
