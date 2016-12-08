@@ -1,8 +1,14 @@
+#
+# MN: you are missing the header with the info on user, instructor and course
+#
+# Notes:
+# MN: You need to insert more comments and explain what each single blocks of code
 file = 0
 
 
 file = input("please give me the name of the file you want me to deal with.")
 
+# MN: what does this function do?
 def processFile(fh):
     PTN = 0
     PD = 0
@@ -15,6 +21,7 @@ def processFile(fh):
         PTN += 1
     return (PD,PTN)
 
+# MN: what does this function do?
 def printKV(key,value,klen=0 ):
     KL = max(len(key),klen)
     if isinstance(value,str):
