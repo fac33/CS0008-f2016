@@ -4,6 +4,25 @@
 # Notes:
 #
 
+# Template for code submission
+# name: Fanyang Cheng
+# email: fac33@pitt.edu
+# date: 12/10/2016
+# class: CS0008-f2016
+# instructor: Max Novelli (man8@pitt.edu)
+#
+# Description
+# description of this file goes here
+# Starting with Python, assignment 3
+# notes
+# template
+
+
+
+
+
+
+
 import copy
 # create a variable to put the data file name in it.
 # MN: why did you hard code the file name for the master list?
