@@ -56,8 +56,8 @@ totalfile = len(name)
 contant = []
 for item in name:
     P = open(item,'r')
-    contant1 = P.readlines()
-    contant.extend(contant1)
+    contant = P.readlines()
+
     # MN: you need to close the file
     #close the file
     P.close()
