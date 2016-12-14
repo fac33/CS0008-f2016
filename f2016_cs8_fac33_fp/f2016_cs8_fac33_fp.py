@@ -36,24 +36,25 @@ for line in name:
 contant = []
 for item in name:
     P = open(item,'r') # open the file
-    contant1 = P.readlines()
-    contant.extend(contant1)
+    contant = P.readlines()
+
     # close the file
     P.close()
     # then we remove '\n'
     # and split the line in to different datas
     # MN: why do you define and update a counter (K) but you never use it
     k = 0
-    print(contant)
+
     for data in contant:
         data = data.rstrip('\n')
         data = data.split(',')
+
+        if "name" in data:
+            continue
         contant[k] = data
-        if "distance" in data:
-            del contant[k]
         k = k + 1
 
-
+    print(contant)
 #now it is time for us to define the class of participation.
 class participation:
 

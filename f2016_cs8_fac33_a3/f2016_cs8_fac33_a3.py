@@ -34,7 +34,7 @@ try:
 except:
     print("there might be something wrong with your file, sorry.")
 
-name = K.readlines()# read the file names in a list
+name = K.readlines()  # read the file names in a list
 
 # MN: you need to close the file
 #close the file.
@@ -48,12 +48,13 @@ for line in name:
     name[n] = line # here is where I use n to reassign the line without "/n" to the list "name" and the recorde of how many files we have read
     n = n+1
 
-
+print(name)
 # now we can find the total files we have to deal with
 totalfile = len(name)
 #print(name)
 # then we need to open all of the files writed in the data file.
 contant = []
+contant0 = [] # a new list which would be the original list.
 for item in name:
     P = open(item,'r')
     contant = P.readlines()
@@ -65,31 +66,35 @@ for item in name:
 #then we remove '\n'
 # and split the line in to different datas
 # MN: why do you define and update a counter (K) but you never use it
-k = 0  # just like n, this k is used as a recorder of the position of those datas.
+
 totaldistance = 0  # this variable is used to cont for the totaldistance all of the participants run.
 for data in contant:
     data = data.rstrip('\n')
     data = data.split(',')
-    contant[k] = data  # here, we use the k to reassign those datas back to the list "contant"
+    if "distance" in data:
+        continue
+    #totaldistance += float(data[1])
+    contant0.append(data)
 
-    k = k+1  # after plus one, we can continuously find the next one of this list.
+
+print(contant0)
 
 #then we need to remove the "name distance" part
 # MN: why do you define and update a counter (w) but you never use it
-w = 0
+#w = 0
 # MN: can we combine it with the previous for loop?
-for rmv in contant:
-    if "distance" in rmv:
-        del contant[w]
-    w = w+1
+#for rmv in contant:
+   # if "distance" in rmv:
+    #    del contant[w]
+    #w = w+1
 # then we can find the total line we have read
 totalline = len(contant)
 
 # then it's time for us to count for the total distance people run
 # MN: can we combine with the previous loop?
-totaldistance = 0
-for dist in contant:
-    totaldistance += float(dist[1])
+#totaldistance = 0
+#for dist in contant:
+    #totaldistance += float(dist[1])
 
 # then we can find the total line we have read
 totalline = len(contant)
@@ -99,9 +104,9 @@ totalline = len(contant)
 # all the following part is about how to find the exact best runner and worst runner.
 #transfer the list into dictionary which might be easier to deal with
 # MN: why do you define 1 dictionary and 2 list (3 if we include the original) with the same info in it?
-contant2 = dict(contant)  #this dictionary is prepared for the calculation of each participants' distance and number of runs.
-contant3 = copy.deepcopy(contant)  #this list used as the same function of the contant2
-contant4 = copy.deepcopy(contant)  # this list is prepared for the final print of the file output.
+contant2 = dict(contant0)  #this dictionary is prepared for the calculation of each participants' distance and number of runs.
+contant3 = copy.deepcopy(contant0)  #this list used as the same function of the contant2
+contant4 = copy.deepcopy(contant0)  # this list is prepared for the final print of the file output.
 contant_multi = [] # this list is prepared to put all of those participants who have more than once records.
 everyrepeater = []  # this list contain all of the number of runs for all the participants in order of the apperance order of participants in those three files.
 temp = len(contant)
