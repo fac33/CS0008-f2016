@@ -1,0 +1,6 @@
+This file is used to deal with huge amouts of datas. It will provide the line it reads, the number of files it reads, total amount of data,
+max data's name, min data's name how many participants are here, and how many have multiple datas. This project does exactly the same thing
+comparing with assignment3 but using the class methods.
+
+made by : Fanyang Cheng
+date: 2016-11-18

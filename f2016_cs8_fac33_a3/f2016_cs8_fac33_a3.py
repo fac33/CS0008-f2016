@@ -53,12 +53,14 @@ print(name)
 totalfile = len(name)
 #print(name)
 # then we need to open all of the files writed in the data file.
-contant = []
+contant = [] #this one is a list of strings which is the very raw data without any translation
+append = [] #this one is a temperary list which provide the list read by each files.
 contant0 = [] # a new list which would be the original list.
 for item in name:
     P = open(item,'r')
-    contant = P.readlines()
-
+    append = P.readlines()
+    #extend the append list onto contant
+    contant.extend(append)
     # MN: you need to close the file
     #close the file
     P.close()
@@ -73,7 +75,7 @@ for data in contant:
     data = data.split(',')
     if "distance" in data:
         continue
-    #totaldistance += float(data[1])
+    totaldistance += float(data[1])
     contant0.append(data)
 
 
