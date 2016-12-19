@@ -56,7 +56,11 @@ for item in name:
     P = open(item,'r')  # open the file
     append = P.readlines()
     contant.extend(append)
-P.close()
+    P.close()
+# MN: you need to close each file that you open. 
+#     this close needs to be moved inside the loop
+#P.close()
+
 totaldistance = 0
 for data in contant:
     data = data.rstrip('\n')
